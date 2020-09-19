@@ -16,19 +16,20 @@ __version__ = "1.1"
 
 import math
 
-# import numpy as np
+import numpy as np
 # import matplotlib.pyplot as plt
 
 
 def practica_listas():
     # 1) Crear una lista que contenga los nùmeros del -10 al 10
-
     # La lista solicitada es una secuencia numérica ordenada, se puede
     # crear utilizando range
 
     lista1 = []  # Lista vacia
 
     # Crear una lista de rango -10 a 10 inclusive
+    for numerito in range(-10, 11):
+        lista1.append(numerito)
 
     print('1:', lista1)
 
@@ -38,6 +39,12 @@ def practica_listas():
     lista2 = []  # Lista vacia
     # Crear una lista de rango -10 a 10 inclusive de 
     # solo nùmeros pares
+    for numerito in range(-10, 11):
+        if (numerito % 2) == 0:
+            lista2.append(numerito)
+
+    # Ahora Usando Compresión de Listas:
+    #lista2 = [numerito for numerito in range(-10, 11) if ((numerito % 2) == 0)]
 
     print('2:', lista2)
 
@@ -46,6 +53,9 @@ def practica_listas():
 
     lista3 = []  # Lista vacia
     # Filtrar numeros positivos
+    for num in lista1:
+        if num > 0:
+            lista3.append(num)
 
     print('3:', lista3)
 
@@ -54,6 +64,9 @@ def practica_listas():
 
     lista4 = []  # Lista vacia
     # Filtrar numeros mayores a 3
+    for num in lista1:
+        if num > 3:
+            lista4.append(num)
 
     print('4:', lista4)
 
@@ -61,14 +74,22 @@ def practica_listas():
 
     suma_total = 0
     # Sumar numeros
+    for num in lista1:
+        suma_total += num
 
     print('5:', suma_total)
 
-    # 6) De la lista1 realizar el modelo, es decir, pasar todos
+    # 6) De la lista1 realizar el módulo, es decir, pasar todos
     # los números a positivo
 
     lista6 = []  # Lista vacia
-    # Aplicar mdulo
+    # Aplicar módulo:
+    for num in lista1:
+        num_mod = abs(num)
+        lista6.append(num_mod)
+
+    # Ahora Usando Compresión de Listas:
+    #lista6 = [abs(numerito) for numerito in lista1]
 
     print('6:', lista6)
 
@@ -78,6 +99,12 @@ def practica_listas():
 
     lista7 = []  # Lista vacia
     # Sumar listas
+    for num in range(len(lista1)):
+        num_lista_1 = lista1[num]
+        num_lista_6 = lista6[num]
+
+        suma = num_lista_1 + num_lista_6
+        lista7.append(suma)
 
     print('7:', lista1)
     print('7:', lista6)
@@ -87,6 +114,9 @@ def practica_listas():
 
     lista8 = []  # Lista vacia
     # Elevar al cuadrado
+    for num in lista1:
+        num_cuadrado = num ** 2
+        lista8.append(num_cuadrado)
 
     print('8:', lista8)
 
